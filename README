@@ -1,0 +1,38 @@
+* Introduction
+
+This project was built during WIP (Wireless Industry Partnership) and Le Mobile 2012 hackathon http://www.lemobile.fr/mobile/category/hackathon/.
+
+* The Project
+
+The idea behind this project is to allow users to track their sent and received postal mail with an application running on their smartphone.
+We imagined a new kind of postal stamp that contains a code bar and can be printed. First, sender scan the stamp code bar then fill a form that contains information about receiver.
+Second, when he sends the letter he can notify the receiver through the system so that he/she get ready to receive the letter.
+When post office receive the letter they update its state after each operation so that both sender and receiver get notified and updated with the new letter status. 
+Receiver can notify Post office, at anytime, about changes that must be considered for the delevery of the letter. For example, he may ask to change the address from its home to work address.
+Finally, when letter is received and delivered to receiver, the sender is notified automatically.
+
+
+* Implementation
+
+The project code consists of following elements:
+- An Android client application for users, an old version was developed with jQuery Mobile.  
+- An Android client application for Post employee. 
+- An Arduino + IOIO + CodeBar Scanner prototype is developed to show the possibility of integrating external hardware devices with Android devices.
+- A web application for the server side built on top of Google App Engine (J2EE).
+
+
+* Usage
+
+To run the project locally, you need: Google App Engine SDK, and Android SDK
+
+In your terminal::
+
+$ git clone https://github.com/soufy/LaPoste.git 
+$ cd LaPoste
+
+Then open the GAE Launcher, import the project, and click Run. Go to http://127.0.0.1:8080 to see it running.
+Install the client on an Android device or run it on Android Emulator.
+
+* License
+
+This project is released under a Creative Commons CC BY-NC-SA license.
