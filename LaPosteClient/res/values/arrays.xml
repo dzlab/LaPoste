@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+      <string-array name="services">
+        <item>Colis Economique</item>
+        <item>Colis Urgent</item>
+        <item>Lettre Prioritaire</item>
+        <item>Lettre Normale</item>
+    </string-array>
+            
+        
+</resources>

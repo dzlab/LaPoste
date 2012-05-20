@@ -1,0 +1,109 @@
+package com.lapost.staff;
+
+import android.app.Activity;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.CallLog;
+import android.provider.ContactsContract;
+import android.provider.MediaStore;
+
+/// un contenu local (images, vidéos, sms, etc.)
+
+public class LocalContent {
+	private Context context;
+
+	public LocalContent(Context context) {
+		super();
+		this.context = context;
+	}
+
+	public Cursor loadContent(){
+		String contentWanted = ""; // par exemple, contentWanted = "sms"
+		Uri uri = Uri.parse("content://" + contentWanted);
+
+		Cursor query = ((Activity) context).managedQuery(uri, null, null, null, null);
+
+		return query;
+	}
+
+	/////////////////////////////
+	/// Exemples de fonctions ///
+	/////////////////////////////
+
+	public Cursor loadSmsRecus(){
+		Uri uri = Uri.parse("content://sms/inbox");
+
+		Cursor query = ((Activity) context).managedQuery(uri, null, null, null, null);
+
+		return query;
+	}
+
+	public Cursor loadAllSms(){
+		Uri uri = Uri.parse("content://sms");
+
+		Cursor query = ((Activity) context).managedQuery(uri, null, null, null, null);
+
+		return query;
+	}
+
+	public Cursor loadContacts(){
+		Uri uri = ContactsContract.Data.CONTENT_URI;
+
+		Cursor query = ((Activity) context).managedQuery(uri, null, null, null, null);
+
+		return query;
+	}
+
+	public Cursor loadImages() {
+		Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+
+		Cursor query = ((Activity) context).managedQuery(uri, null, null, null, null);
+
+		return query;
+	}
+
+	public Cursor loadVideos() {
+		Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+
+		Cursor query = ((Activity) context).managedQuery(uri, null, null, null, null);
+
+		return query;
+	}
+
+	public Cursor loadAllAppel() {
+		Uri uri = CallLog.Calls.CONTENT_URI;
+
+		Cursor query = ((Activity) context).managedQuery(uri, null, null, null, null);
+
+		return query;
+	}
+
+	public Cursor loadAppelRecus() {
+		Uri uri = CallLog.Calls.CONTENT_URI;
+
+		String where = "type = 1";
+
+		Cursor query = ((Activity) context).managedQuery(uri, null, where, null, null);
+
+		return query;
+	}
+
+	public Cursor loadAllEvents() {
+		Uri uri = Uri.parse("content://calendar/events");
+
+		Cursor query = ((Activity) context).managedQuery(uri, null, null, null, null);
+
+		return query;
+	}
+
+	public Cursor loadAllAudio() {
+		Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+
+		Cursor query = ((Activity) context).managedQuery(uri, null, null, null, null);
+
+		return query;
+	}
+
+
+}

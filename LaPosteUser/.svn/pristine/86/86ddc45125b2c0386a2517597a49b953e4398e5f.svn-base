@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<script src="js/jquery-1.6.4.min.js"></script>
+	<script src="js/jquery.mobile-1.0.1.min.js"></script>
+	<script src="js/la-poste.js"></script>
+	<script src="js/jsrender.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet"  href="css/jquery.mobile-1.0.1.min.css" />  
+	<link rel="stylesheet"  href="css/jquery.mobile.structure-1.0.1.min.css" />  
+	<style>
+/*** patch for jquerymobile page flicker that was happending ***/
+    .ui-page {
+        -webkit-backface-visibility: hidden;
+    } 
+</style>
+<style>
+
+</style>
+
+</head> 
+<body>
+
+<div data-role="page" id="envoye">
+
+	<div data-role="header" data-theme="e" class="ui-bar ui-grid-b"> 
+		
+		<span class="ui-block-a" style="margin-right:10%; margin-left:10%; text-align:middle;">Mes Envoies</span> 
+		<span class="ui-block-b" style="text-align:right;"><a href="#recevoie" data-role="button" data-theme="b" data-icon="arrow-r" data-inline="true">Mes Receptions</a></span>
+	</div> 
+
+
+	<ul id="listEnvoye" data-role="listview" data-inset="true" data-theme="c">
+		<script id="listTemplate" type="text/x-jquery-tmpl"> 
+			<li>
+				<a href="audi.html">
+				<h5>Envoie de {{=nameSender}} a {{=nameReceiver}}</h5>
+				<p>{{=identifier}}</p>
+                <p>{{=state}}</p>
+				</a>		
+			</li>
+		</script>
+	</ul>
+
+	<div data-role="footer" class="ui-bar">
+	<a href="index.html" onClick="window.demo.clickOnAndroid()" data-role="button" data-icon="plus">Add</a>
+	<a href="index.html" data-role="button" data-icon="gear">Change my address</a>
+	</div>
+</div>
+
+<div data-role="page" id="recevoie">
+	
+	
+	<div data-role="header" data-theme="e" class="ui-bar ui-grid-b"> 
+		
+		<h1 class="ui-block-a" style="margin-right:10%; margin-left:10%; text-align:middle;">Mes Receptions</h1> 
+		<span class="ui-block-b" style="text-align:right;"><a href="#envoye" data-role="button" data-theme="b" data-icon="arrow-r" data-inline="true">Mes Envoies</a></span>
+	</div> 
+	
+	<ul data-role="listview" data-inset="true" data-theme="c" id="listRec">
+		
+	</ul>
+
+
+</div>
+</body>
+</html> 

@@ -1,0 +1,193 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<script src="js/jquery-1.6.4.min.js"></script>
+	<script src="js/jquery.mobile-1.0.1.min.js"></script>
+	<script src="js/la-poste.js"></script>
+	<script src="js/jsrender.js"></script>	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet"  href="css/jquery.mobile-1.0.1.min.css" />  
+	<link rel="stylesheet"  href="css/jquery.mobile.structure-1.0.1.min.css" />  
+	
+</head> 
+<body>
+
+<div data-role="page" id="homepage">
+
+	<div data-role="header" data-theme="e" class="ui-bar ui-grid-b"> 
+		<span class="ui-block-a" style="margin-right:10%; margin-left:10%; text-align:middle;">La Poste</span> 
+		<span class="ui-block-b" style="text-align:right;"><a href="#map" data-role="button" data-theme="b" data-icon="arrow-r" data-inline="true">Map</a></span>
+	</div> 
+	
+
+<ul id="listTodo" data-role="listview" data-theme="e" data-divider-theme="a">
+	<li data-role="list-divider">Todo <span class="ui-li-count">3</span></li>
+	<script id="listTemplate" type="text/x-jquery-tmpl"> 
+		<li>
+			<a href="#keypad">
+			<h5>Colis pour {{=nameReceiver}}</h5>
+			
+			<p>Address: {{=address}}</p>
+			</a>		
+		</li>
+	</script>
+</ul>
+
+<ul id="listDone" data-role="listview" data-theme="c" data-divider-theme="a">
+	<li data-role="list-divider">Done <span class="ui-li-count">3</span></li>
+</ul>
+
+
+
+</div><!-- /page -->
+
+
+<div data-role="page" id="keypad" data-theme="b">
+    <div data-role="header" data-theme="b"><h1>Password Pad</h1></div>
+    <div data-role="content" data-theme="b">
+		<table align="center" border="0">
+			<tr>
+				<td width="40%" align="center"><label><strong>Please Press Password</strong></label> </td>
+				<td align="left"><span id="typeMessage"></span></td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<div data-role="controlgroup" data-type="horizontal" align="center">
+						<input type="button" value="1">
+						<input type="button" value="2">
+						<input type="button" value="3">
+					</div>
+					<div data-role="controlgroup" data-type="horizontal" align="center">
+						<input type="button" value="4">
+						<input type="button" value="5">
+						<input type="button" value="6">
+					</div>
+					<div data-role="controlgroup" data-type="horizontal" align="center">
+						<input type="button" value="7">
+						<input type="button" value="8">
+						<input type="button" value="9">
+					</div>
+					<div data-role="controlgroup" data-type="horizontal" align="center">
+						<input type="button" value="0">
+						<input type="button" value="Corriger" data-icon="back">
+					</div>				
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3"><input onclick="$(this).remove();$.mobile.changePage( '#homepage' )" type="button" value="Valider" data-theme="b"></td>
+			</tr>
+		</table>
+    </div>
+   
+    <!--<div data-role="footer" data-theme="b">Dialog Footer</div>-->
+</div>
+
+<div data-role="page" id="map" data-theme="b">
+	<div data-role="header" data-theme="e" class="ui-bar ui-grid-b"> 
+		<span class="ui-block-a" style="margin-right:10%; margin-left:10%; text-align:middle;">Map</span> 
+		<span class="ui-block-b" style="text-align:right;"><a href="#homepage" data-role="button" data-theme="b" data-icon="arrow-r" data-inline="true">List</a></span>
+	</div> 
+	
+	<script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script>
+	<div id="cm-example" style="width: 700px; height: 400px"></div>
+<script type="text/javascript">
+
+    var cloudmade = new CM.Tiles.CloudMade.Web({key: '8ee2a50541944fb9bcedded5165f09d9'});
+
+    var map = new CM.Map('cm-example', cloudmade);    
+
+    //map.setCenter(new CM.LatLng(51.514, -0.137), 15);
+
+    
+
+    var TruckIcon = new CM.Icon();
+
+    //TruckIcon.image = "http://icons.iconarchive.com/icons/icons-land/transport/48/Truck-icon.png";
+
+    TruckIcon.image = "http://icons.iconarchive.com/icons/designkindle/build/16/Pin-icon.png";
+
+    
+
+    
+
+    var truckLocation = new CM.LatLng(48.985850, 1.668205);
+
+    var truckMarker = new CM.Marker(truckLocation, {
+
+    	title: "Delivery truck current location",
+
+    	icon: TruckIcon
+
+    });
+
+    var departLocation = new CM.LatLng(48.822618, 2.269685);
+
+    var departMarker = new CM.Marker(departLocation, {title: "Delivery truck departure location"});    
+
+    
+
+    var arrivalLocation = new CM.LatLng(49.178926, -0.392804);
+
+    var arrivalMarker = new CM.Marker(arrivalLocation, {title: "Delivery truck arrival location"});
+
+    
+
+    // URL to get GPX file of the route: 
+
+    //	http://routes.cloudmade.com/8ee2a50541944fb9bcedded5165f09d9/api/0.3/48.822618,2.269685,49.178926,-0.392804/car/shortest.gpx?units=km&lang=fr    
+
+    
+
+    /*
+
+    var markers = [];    
+
+    markers.push(truckMarker);   
+
+    markers.push(departMarker);    
+
+    var clusterer = new CM.MarkerClusterer(map, {clusterRadius: 70});
+
+    clusterer.addMarkers(markers);
+
+    */
+
+/*    
+
+    var truckLocation = new CM.LatLng(50.136,8.302);
+
+	var truckMarker = new CM.Marker(myMarkerLatLng, {title: "This is the Village of Naurod"});
+
+*/    
+
+
+
+	var centerLocation = new CM.LatLng(49.027063, 1.148071);
+
+	map.setCenter(centerLocation, 8);
+
+	map.addOverlay(truckMarker);
+
+	map.addOverlay(departMarker);
+
+	map.addOverlay(arrivalMarker);
+
+    
+
+    var topRight = new CM.ControlPosition(CM.TOP_RIGHT, new CM.Size(50, 20));
+
+    map.addControl(new CM.SmallMapControl(), topRight);
+
+    map.addControl(new CM.LargeMapControl());
+
+    map.addControl(new CM.ScaleControl());
+
+    map.addControl(new CM.OverviewMapControl());
+
+  </script>
+	
+
+</div>
+
+</body>
+</html> 

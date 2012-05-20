@@ -1,0 +1,136 @@
+package com.lapost.client;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.view.View;
+
+public class UserInfoActivity extends Activity {
+	
+	Context context;
+    private static String nameKey;
+	private String addressKey;
+	private String emailKey;
+	private String phoneKey;
+	private static SharedPreferences prefs;
+	private String packageName;
+
+
+	/** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.user_info);
+        
+        context=this;
+        overridePendingTransition(R.anim.hold, R.anim.push_left_in);
+		packageName = this.getPackageName();
+        nameKey = packageName + "name_key";
+		addressKey = packageName + "address_key";
+		emailKey=packageName+ "email_key";
+		phoneKey=packageName+ "phone_key";
+
+		prefs = this.getSharedPreferences(this.getPackageName(),
+				Context.MODE_PRIVATE);
+		
+	
+        
+        
+        final AutoCompleteTextView senderName = (AutoCompleteTextView) findViewById(R.id.nameSender);
+        senderName.setText(getIntent().getStringExtra("letter"));
+        
+        final AutoCompleteTextView addressSender= (AutoCompleteTextView)findViewById(R.id.addrSender);
+        final EditText email= (EditText)findViewById(R.id.emailSender);
+        
+        ArrayAdapter<String> nameAdapter = new ArrayAdapter<String>(this, R.layout.auto_item, Constants.NAMES);
+        senderName.setAdapter(nameAdapter);
+        
+        
+        ArrayAdapter<String> addAdapter = new ArrayAdapter<String>(this, R.layout.auto_item, Constants.ADDRESSES);
+        addressSender.setAdapter(addAdapter);
+        
+        final EditText phone= (EditText)findViewById(R.id.phoneSender);
+        
+        senderName.setText(prefs.getString(nameKey, ""));
+        addressSender.setText(prefs.getString(addressKey, ""));
+        email.setText(prefs.getString(emailKey, ""));
+        phone.setText(prefs.getString(phoneKey, ""));
+        
+        
+        /** Publish random data */
+        Button btnSubmit = (Button)findViewById(R.id.btnSubmit);
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+        	@Override          
+        	public void onClick(View view) {
+        		
+        		if(senderName.getText().length()<1){
+        		Toast.makeText(context, "Votre nom n'est pas valide", Toast.LENGTH_LONG);
+        		return;
+        		}
+        		
+        		if(addressSender.getText().length()<1){
+            		Toast.makeText(context, "Votre adresse n'est pas valide", Toast.LENGTH_LONG);
+            		return;
+            		}
+        		
+        		if(email.getText().length()<1){
+            		Toast.makeText(context, "Votre email n'est pas valide", Toast.LENGTH_LONG);
+            		return;
+            		}
+        		
+       
+        	     
+                prefs.edit().putString(nameKey, senderName.getText().toString())
+        			.commit();
+                
+
+                
+                prefs.edit().putString(addressKey, addressSender.getText().toString())
+        			.commit();
+                
+                prefs.edit().putString(emailKey, email.getText().toString())
+    			.commit();
+                
+                prefs.edit().putString(phoneKey, phone.getText().toString())
+    			.commit();
+                
+                
+                setNewUserName();
+        		
+        		
+        		
+        		
+            	finish();
+        	}
+        });
+    }
+    
+    protected void onPause(){
+ 	   
+        overridePendingTransition(R.anim.push_left_out, R.anim.hold);
+        super.onPause();
+
+    }
+    
+    
+    
+	public static void setNewUserName(){
+		
+		
+		Constants.userName=prefs.getString(nameKey, "");
+		
+	}
+		
+	
+}

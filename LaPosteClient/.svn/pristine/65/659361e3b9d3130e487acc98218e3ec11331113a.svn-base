@@ -1,0 +1,29 @@
+package com.lapost.client;
+
+public class Constants {
+
+	public static String[] NAMES = new String[] {"Alice DUQUAI", "Alex DE LA FONTAINE", "Bob LEE", "Carol CHEN", "Jean SARKOZY","Tapan SEEKO","Amar YEPPY","Santosh POKA","Deepak INEQUE", "Eve LIN", "Justin CRA", "Matilda MATISSE", "Peggy SUNNY", "Victor CHARLIE", "Walter BRO"};
+	public static String[] ADDRESSES = new String[] {"Waterloo Bridge, 35100 Rennes", "Rue du Singe, 92100 La defense", "Rue Barrault, 75001 Paris", "Karl Marx Allee, A456U Berlin", "Rue General Leclerc, 92100 Boulogne-Billancourt", "Les champs elysees, 75002 Paris", "Porte de la chapelle, 75018 Paris"};
+	
+	//public static final String SERVER_ADDRESS = "http://laposte-webapp.appspot.com/";
+	//public static final String SERVER_ADDRESS = "http://c-bucp-bc.rd.francetelecom.fr:8888/";
+	public static final String SERVER_ADDRESS = "http://post-webapp.appspot.com/";
+	//public static final String SERVER_ADDRESS = "http://192.168.1.11:8888/";
+	
+	public static String USER;
+	
+	
+	public static String RandomUser() {
+		int index = (int) (Math.random() * NAMES.length);
+		return NAMES[index];
+	}
+	
+	public static String RandomAddress() {
+		int index = (int) (Math.random() * ADDRESSES.length);
+		return ADDRESSES[index];
+	}
+	
+	static void init() {
+		USER = RandomUser();
+	}
+}

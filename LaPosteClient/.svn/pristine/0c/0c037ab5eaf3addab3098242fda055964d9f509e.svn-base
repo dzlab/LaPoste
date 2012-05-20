@@ -1,0 +1,94 @@
+package com.lapost.client;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.view.View;
+
+public class UserInfoActivity extends Activity {
+	
+	Context context;
+
+	/** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.user_info);
+        
+        context=this;
+        overridePendingTransition(R.anim.hold, R.anim.push_left_in);
+
+        
+        final AutoCompleteTextView senderName = (AutoCompleteTextView) findViewById(R.id.nameSender);
+        senderName.setText(getIntent().getStringExtra("letter"));
+        
+        final AutoCompleteTextView addressSender= (AutoCompleteTextView)findViewById(R.id.addrSender);
+        final EditText email= (EditText)findViewById(R.id.emailSender);
+        
+        ArrayAdapter<String> nameAdapter = new ArrayAdapter<String>(this, R.layout.auto_item, Constants.NAMES);
+        senderName.setAdapter(nameAdapter);
+        
+        
+        ArrayAdapter<String> addAdapter = new ArrayAdapter<String>(this, R.layout.auto_item, Constants.ADDRESSES);
+        addressSender.setAdapter(addAdapter);
+        
+        
+        
+        /** Publish random data */
+        Button btnSubmit = (Button)findViewById(R.id.btnSubmit);
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+        	@Override          
+        	public void onClick(View view) {
+        		
+        		if(senderName.getText().length()<1){
+        		Toast.makeText(context, "Votre nom n'est pas valide", Toast.LENGTH_LONG);
+        		return;
+        		}
+        		
+        		if(addressSender.getText().length()<1){
+            		Toast.makeText(context, "Votre adresse n'est pas valide", Toast.LENGTH_LONG);
+            		return;
+            		}
+        		
+        		if(email.getText().length()<1){
+            		Toast.makeText(context, "Votre email n'est pas valide", Toast.LENGTH_LONG);
+            		return;
+            		}
+        		
+        	/*	JSONObject json = new JSONObject();
+        	  try {	    	
+        			json.put("identifier", ""+rand);
+        			//json.put("nameSender", "Yan");
+        		    json.put("nameSender", Constants.USER);
+        		    json.put("nameReceiver", name.getText());
+        		    json.put("addrReceiver", add.getText());
+        		    
+        		} catch (JSONException e) {
+        			e.printStackTrace();
+        		}
+        	      
+            	String path = "letter";
+            	String data = json.toString();
+            	HttpHelper.doPost(path, data);*/
+            	finish();
+        	}
+        });
+    }
+    
+    protected void onPause(){
+ 	   
+        overridePendingTransition(R.anim.push_left_out, R.anim.hold);
+        super.onPause();
+
+    }
+}

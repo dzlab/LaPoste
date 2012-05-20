@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+
+  	<servlet>
+        <servlet-name>state_history</servlet-name>
+        <servlet-class>com.laposte.gae.StateHistoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>state_history</servlet-name>
+        <url-pattern>/state_history</url-pattern>
+    </servlet-mapping>
+      
+  	<servlet>
+        <servlet-name>registration</servlet-name>
+        <servlet-class>com.laposte.gae.C2DMServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registration</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+  
+  	<servlet>
+        <servlet-name>directory</servlet-name>
+        <servlet-class>com.laposte.gae.DirectoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>directory</servlet-name>
+        <url-pattern>/directory</url-pattern>
+    </servlet-mapping>
+
+  	<servlet>
+        <servlet-name>letter</servlet-name>
+        <servlet-class>com.laposte.gae.LetterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>letter</servlet-name>
+        <url-pattern>/letter</url-pattern>
+    </servlet-mapping>
+
+  	<servlet>
+        <servlet-name>letterReq</servlet-name>
+        <servlet-class>com.laposte.gae.LetterReqServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>letterReq</servlet-name>
+        <url-pattern>/letterReq</url-pattern>
+    </servlet-mapping>
+
+
+  	<servlet>
+        <servlet-name>factor</servlet-name>
+        <servlet-class>com.laposte.gae.FactorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>factor</servlet-name>
+        <url-pattern>/factor</url-pattern>
+    </servlet-mapping>
+
+  	<servlet>
+        <servlet-name>c2dm_test</servlet-name>
+        <servlet-class>com.laposte.gae.C2DM_TestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>c2dm_test</servlet-name>
+        <url-pattern>/c2dm_test</url-pattern>
+    </servlet-mapping>
+
+  	<servlet>
+        <servlet-name>c2dm_auth</servlet-name>
+        <servlet-class>com.laposte.gae.AuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>c2dm_auth</servlet-name>
+        <url-pattern>/c2dm_auth</url-pattern>
+    </servlet-mapping>
+
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>greetServlet</servlet-name>
+    <servlet-class>com.laposte.gae.server.GreetingServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>greetServlet</servlet-name>
+    <url-pattern>/postserver/greet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>PostServer.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>

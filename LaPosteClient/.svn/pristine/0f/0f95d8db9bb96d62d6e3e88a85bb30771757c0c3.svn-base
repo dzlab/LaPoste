@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="active">#78C8E5</color>
+    <color name="transparent">#0000</color>
+    <color name="black">#000</color>
+    <color name="grey">#F9F9F9</color>
+    <color name="semitransparent">#29000000</color>
+    <color name="bubblegrey">#D3D3D3</color>
+    <color name="pink">#f0c7d7</color>
+    <drawable name="transparent_color">#00000000</drawable>    
+        
+        
+    
+        </resources>

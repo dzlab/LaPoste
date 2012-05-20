@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<script src="js/jquery-1.6.4.min.js"></script>
+	<script src="js/jquery.mobile-1.0.1.min.js"></script>
+	<script src="js/la-poste.js"></script>
+	<script src="js/jsrender.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet"  href="css/jquery.mobile-1.0.1.min.css" />  
+	<link rel="stylesheet"  href="css/jquery.mobile.structure-1.0.1.min.css" />  
+	<style>
+/*** patch for jquerymobile page flicker that was happending ***/
+    .ui-page {
+        -webkit-backface-visibility: hidden;
+    } 
+</style>
+<style>
+
+</style>
+
+</head> 
+<body>
+
+
+	<div data-role="header" data-theme="e"> 
+		<span class="ui-icon ui-icon-custom ui-icon-shadow"></span>
+		<h1>La Poste</h1> 
+	</div> 
+	
+	<div data-role="navbar" data-iconpos="top" data-theme="a">
+		<ul>
+			<li><a href="#enoye" class="ui-btn-active default-active">Envoye</a></li>
+			<li><a href="./recevoie.html" class="default-noactive">Recevoi</a></li>
+		</ul>
+	</div><!-- /navbar -->
+
+	<ul id="listEnvoye" data-role="listview" data-inset="true" data-theme="c">
+		<script id="listTemplate" type="text/x-jquery-tmpl"> 
+			<li>
+				<a href="audi.html">
+				<h5>Livraison de Mr. {{=name}}</h5>
+				<p>{{=status}}</p>
+				</a>		
+			</li>
+		</script>
+	</ul>
+
+	<div data-role="footer" class="ui-bar">
+	<a href="index.html" onclick="appelerCodeNatif('ecran', 'ss', '');" data-role="button" data-icon="plus">Add</a>
+	<a href="index.html" data-role="button" data-icon="gear">Change my address</a>
+	</div>
+	
+
+</body>
+</html> 

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:background="@drawable/yellow" >	
+  
+    
+        <RelativeLayout 
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dip"
+     >    
+     
+         
+                  
+        <ImageView 
+        android:layout_width="fill_parent"
+        android:layout_height="60dip"
+        android:src="@drawable/logo"
+        android:id="@+id/logo"
+        />
+   
+     
+          
+    </RelativeLayout>
+    
+                        <ScrollView
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  >	
+  
+    
+            <LinearLayout
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  >	
+  
+       <TextView android:layout_width="match_parent" 
+    		  android:layout_height="wrap_content" 
+    		  android:text="Type de courrier" 
+    		   android:textColor="#000000"
+    		  android:textSize="15dp"
+    		  />
+                         
+        <TextView android:id="@+id/type"
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:textSize="15dip"
+        android:text="Chargement en cours..."
+        android:textColor="@android:color/black"
+        android:layout_height="wrap_content"
+        android:paddingRight="5dip"
+        android:textStyle="bold"
+        />
+        
+        
+          <TextView android:layout_width="match_parent" 
+    		  android:layout_height="wrap_content" 
+    		  android:text="Prix" 
+    		   android:textColor="#000000"
+    		  android:textSize="15dp"
+    		  />
+          
+          
+    <TextView android:layout_height="wrap_content" 
+    		  android:text="Chargement en cours..." 
+    		  android:id="@+id/price" 
+    		  android:layout_width="match_parent"
+    		 android:textColor="#000000"
+    		 android:textSize="15dp"
+    		 android:textStyle="bold"
+    		 />
+    
+  
+  
+  <TextView android:layout_width="match_parent" 
+    		  android:layout_height="wrap_content" 
+    		  android:text="Numéro d'envoie" 
+    		   android:textColor="#000000"
+    		  android:textSize="15dp"
+    		  />
+    <TextView android:layout_height="wrap_content" 
+    		  android:text="8N02335015384" 
+    		  android:id="@+id/txtLetter" 
+    		  android:layout_width="match_parent"
+    		 android:textColor="#000000"
+    		 android:textSize="15dp"
+    		 android:textStyle="bold"
+    		 
+    		 />
+    
+    
+    
+    
+    
+      <TextView  android:layout_width="match_parent" 
+    		  android:layout_height="wrap_content" 
+    		  android:text="Nom de l'émetteur" 
+    		   android:textColor="#000000"
+    		  android:textSize="15dp"
+    		  />
+    <TextView  android:layout_height="wrap_content" 
+    		  android:id="@+id/nameSender" 
+    		  android:layout_width="match_parent"
+    		  android:textColor="#000000"
+    		  android:textStyle="bold"
+    		  android:text="Chargement en cours..." 
+    		  
+    		    />
+
+        
+    
+    <TextView  android:layout_width="match_parent" 
+    		  android:layout_height="wrap_content" 
+    		  android:text="Nom du destinataire" 
+    		   android:textColor="#000000"
+    		  android:textSize="15dp"
+    		  />
+    <TextView  android:layout_height="wrap_content" 
+    		  android:id="@+id/nameReceiver" 
+    		  android:layout_width="match_parent"
+    		  android:textColor="#000000" 
+    		 android:textStyle="bold"
+    		 android:text="Chargement en cours..." 
+    		     
+    		   />
+
+    <TextView android:layout_width="match_parent" 
+    		  android:layout_height="wrap_content" 
+    		  android:text="Adresse du destinataire" 
+    		  android:textSize="15dp"
+    		  android:textColor="#000000"
+    		  />
+    <TextView android:layout_height="wrap_content" 
+    		  android:id="@+id/addrReceiver" 
+    		  android:layout_width="match_parent"
+    		  android:textColor="#000000"
+    		  android:textStyle="bold"
+    		  android:text="Chargement en cours..." 
+    		  
+    		    />
+    
+    
+  
+         <TextView android:layout_height="wrap_content" 
+    		  android:id="@+id/state" 
+    		  android:textStyle="bold"
+    		  android:layout_width="match_parent"
+    		  android:text="Chargement en cours..." 
+    		  android:textColor="#FFFFFF" 
+    		  android:background="@drawable/blue"
+    		  />
+    
+
+    
+    
+            <LinearLayout
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal"
+  >	
+    
+     <Button  android:layout_width="fill_parent" 
+             android:layout_height="wrap_content" 
+             android:layout_alignParentLeft="true"
+             android:id="@+id/btnSign" 
+             android:text="Confirmer la réception (signature destinataire)"
+             android:layout_weight="1"
+             >
+             
+     </Button>
+         
+        
+
+</LinearLayout>
+             
+    
+        </LinearLayout>
+                </ScrollView>
+                
+                
+    
+</LinearLayout>

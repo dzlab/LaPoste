@@ -1,0 +1,42 @@
+//ENSEMBLE DE FONCTIONS JAVASCRIPT PERMETTANT DE CHARGER 
+//DIVERS CONTENUS AU SEIN D'UNE PAGE HTML
+
+function appelerCodeNatif(ecran, action, params) {
+	//Construction de l'URL
+ var url = 'laposte://staff/' + ecran + '/'; // A changer en fonction de l'application
+ var query = '';
+ var fragment = '$' + action + '/';
+ for (param in params) {
+     var separator = '|';
+     query = query + param + "=" + params[param] + separator;
+ }
+	
+ // Appel du code natif
+ window.location = url + query + fragment;
+}
+
+function addDataForTodo(name, address, status)
+{
+	data = {"name": name, 
+			 "status": status};
+	element = $("#listTemplate").render( data );
+	$("#listTodo").append(element);
+	$("#listTodo").listview('refresh');
+}
+
+function addDataForDone(name, address, status)
+{
+	data = {"name": name, 
+			 "status": status};
+	element = $("#listTemplate").render( data );
+	$("#listDone").append(element);
+	$("#listDone").listview('refresh');
+}
+
+$(document).ready( function() {
+	addDataForTodo("Yang", "1er rue de la Defense", "- Le 12 Mars 2012: Recu par la poste");
+	addDataForTodo("Yang", "1er rue de la Defense", "- Le 12 Mars 2012: Recu par la poste");
+	
+	addDataForDone("Yang", "1er rue de la Defense", "- Le 12 Mars 2012: Recu par la poste");
+});
+

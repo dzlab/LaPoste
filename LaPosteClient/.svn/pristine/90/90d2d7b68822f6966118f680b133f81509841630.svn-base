@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="app_name">La Poste</string>
+    <string name="add">Envoyer un courrier</string>
+    <string name="refresh">Rafraichir</string>
+    <string name="my_receptions">Mes réceptions</string>
+    <string name="my_sendings">Mes envoies</string>
+    <string name="num">N° </string>
+            
+        
+</resources>

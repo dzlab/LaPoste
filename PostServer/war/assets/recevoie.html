@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<script src="js/jquery-1.6.4.min.js"></script>
+	<script src="js/jquery.mobile-1.0.1.min.js"></script>
+	<script src="js/la-poste.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet"  href="css/jquery.mobile-1.0.1.min.css" />  
+	<link rel="stylesheet"  href="css/jquery.mobile.structure-1.0.1.min.css" />  
+	<style>
+/*** patch for jquerymobile page flicker that was happending ***/
+    .ui-page {
+        -webkit-backface-visibility: hidden;
+    } 
+</style>
+<style>
+$(".default-noactive").bind('tap', function(){
+	//$(".default-active")
+	alert("hi");
+});
+</style>
+
+</head> 
+<body>
+
+<div data-role="page" id="recevoi">
+
+	<div data-role="header" data-theme="e"> 
+		<span class="ui-icon ui-icon-custom ui-icon-shadow"></span>
+		<h1>La Poste New Page</h1> 
+	</div> 
+	
+	<div data-role="navbar" data-iconpos="top" data-theme="a">
+		<ul>
+			<li><a href="index.html" class="default-noactive">Envoye</a></li>
+			<li><a href="#recevoi" class="ui-btn-active" class="default-active">Recevoi</a></li>
+		</ul>
+	</div><!-- /navbar -->
+
+	<ul data-role="listview" data-inset="true" data-theme="c">
+		
+		<li>
+			<a href="audi.html">
+			<h5>Coli de Mr. Yang</h5>
+			<p>
+			- Le 12 Mars 2012: Recu par la poste <br/>
+			- Le 14 Mars 2012: Recu par le destinaire <br/>
+			</p>
+			</a>
+		</li>
+		<li><a href="audi.html">Audi</a></li>
+		<li><a href="bmw.html">BMW</a></li>
+	</ul>
+
+
+
+</div><!-- /page -->
+
+</body>
+</html> 

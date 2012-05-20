@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title>CloudMade JavaScript API example</title>
+</head>
+<body>
+<!-- Check this URL for more examples: http://developers.cloudmade.com/projects/web-maps-api/examples -->
+  <div id="cm-example" style="width: 350px; height: 500px"></div>
+
+  <script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script>
+  <script type="text/javascript">
+  cloudmade = new CM.Tiles.CloudMade.Web({key: '8ee2a50541944fb9bcedded5165f09d9'});
+  map = new CM.Map('cm-example', cloudmade);    
+  //map.setCenter(new CM.LatLng(51.514, -0.137), 15);
+  
+  var TruckIcon = new CM.Icon();
+  //TruckIcon.image = "http://icons.iconarchive.com/icons/icons-land/transport/48/Truck-icon.png";
+  TruckIcon.image = "C:\\PhD\\workspace\\SupV\\res\\truck.png";
+  
+  var truckLocation = new CM.LatLng(48.985850, 1.668205);
+  var truckMarker = new CM.Marker(truckLocation, {
+  	title: "Delivery truck current location",
+  	icon: TruckIcon
+  });
+  var departLocation = new CM.LatLng(48.822618, 2.269685);
+  var departMarker = new CM.Marker(departLocation, {title: "Delivery truck departure location"});    
+  
+  var arrivalLocation = new CM.LatLng(49.178926, -0.392804);
+  var arrivalMarker = new CM.Marker(arrivalLocation, {title: "Delivery truck arrival location"});
+  
+	var centerLocation = new CM.LatLng(49.027063, 1.148071);
+	map.setCenter(centerLocation, 8);
+	map.addOverlay(truckMarker);
+	map.addOverlay(departMarker);
+	map.addOverlay(arrivalMarker);
+  
+  var topRight = new CM.ControlPosition(CM.TOP_RIGHT, new CM.Size(50, 20));
+  map.addControl(new CM.SmallMapControl(), topRight);
+  map.addControl(new CM.LargeMapControl());
+  map.addControl(new CM.ScaleControl());
+  map.addControl(new CM.OverviewMapControl());
+  
+  </script>
+
+</body>
+</html>

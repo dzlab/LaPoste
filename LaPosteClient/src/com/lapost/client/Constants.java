@@ -1,0 +1,24 @@
+package com.lapost.client;
+
+
+
+public class Constants {
+
+	public static String[] NAMES = new String[] {"Alice DUBOIS", "Alex DE LA FONTAINE", "Bruce LEE", "Bolice DURAND", "Bonusus LEGRAND","Bonhomme DUSUCRE", "Bob DYLAN", "Carol CHEN", "Jean-Ive PETERS","Tapan SEEKO","Amar YEPPY","Santosh POKA","Deepak INEQUE", "Eve LIN", "Justin CRA", "Matilda MATISSE", "Peggy SUNNY", "Victor CHARLIE", "Walter BRO"};
+	public static String[] ADDRESSES = new String[] {"10 Rue Constant Veron, Rennes, Bretagne, France", "2 boulevard Newton, 77420 Champs-sur-Marne", "19 Rue Alfred Nobel, 77420 Champs-sur-Marne", "15 rue de Chelles, 77420 Champs-sur-Marne", "9 rue Gallieni, 92100 Boulogne-Billancourt", "9 Rue de la Paix, 75002 Paris", "9 Rue de la Huchette,75005 Paris"};
+	
+	public static final String SERVER_ADDRESS = "http://laposte-webapp.appspot.com/";
+	//public static final String SERVER_ADDRESS = "http://c-bucp-bc.rd.francetelecom.fr:8888/";
+	//public static final String SERVER_ADDRESS = "http://post-webapp.appspot.com/";
+	//public static final String SERVER_ADDRESS = "http://192.168.1.11:8888/";
+	
+	public static boolean shouldRefreshSentList=false;	
+	public static boolean shouldRefreshReceivedList=false;	
+
+	
+	public static String userName;
+
+		
+		
+
+}

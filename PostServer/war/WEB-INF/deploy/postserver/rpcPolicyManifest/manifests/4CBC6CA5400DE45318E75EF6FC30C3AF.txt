@@ -1,0 +1,2 @@
+serviceClass: com.laposte.gae.client.GreetingService
+path: A48D6CF9156FB00A0553631F342963E0.gwt.rpc

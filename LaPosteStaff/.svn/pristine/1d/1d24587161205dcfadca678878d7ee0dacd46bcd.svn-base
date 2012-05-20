@@ -1,0 +1,50 @@
+package com.lapost.staff;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.Window;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+
+public class MainActivity extends Activity {
+	private WebView webView;
+    
+	// Classe MainActivity , charg�?d'afficher la premi鑢e webview
+	
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        setContentView(R.layout.main);
+
+        webView = (WebView) findViewById(R.id.main);
+        final WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+
+        webView.loadUrl("file:///android_asset/index.html");
+        webView.setVerticalScrollbarOverlay(true);
+    }
+	
+	// Fonction permettant de surcharger le bouton retour Android,
+	// pour permettre le retour arri鑢e au sein des pages d'une WebView
+	// Sans �?le bouton retour revient �l'activit�pr閏閐ente!
+	@Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(event.getAction() == KeyEvent.ACTION_DOWN){
+            switch(keyCode)
+            {
+            case KeyEvent.KEYCODE_BACK:
+                if(webView.canGoBack() == true){
+                    webView.goBack();
+                }else{
+                    finish();
+                }
+                return true;
+            }
+
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<script src="js/jquery-1.6.4.min.js"></script>
+	<script src="js/jquery.mobile-1.0.1.min.js"></script>
+	<script src="js/la-poste.js"></script>
+	<script src="js/jsrender.js"></script>	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet"  href="css/jquery.mobile-1.0.1.min.css" />  
+	<link rel="stylesheet"  href="css/jquery.mobile.structure-1.0.1.min.css" />  
+	
+</head> 
+<body>
+
+<div data-role="page" id="homepage">
+
+	<div data-role="header" data-theme="e"> 
+		<span class="ui-icon ui-icon-custom ui-icon-shadow"></span>
+		<h1>La Poste</h1> 
+	</div> 
+	
+	<div data-role="navbar" data-iconpos="top" data-theme="a">
+		<ul>
+			<li><a href="#homepage" class="ui-btn-active">List</a></li>
+			<li><a href="#map">Map</a></li>
+		</ul>
+	</div><!-- /navbar -->
+
+<ul id="listTodo" data-role="listview" data-theme="e" data-divider-theme="a">
+	<li data-role="list-divider">Todo <span class="ui-li-count">3</span></li>
+	<script id="listTemplate" type="text/x-jquery-tmpl"> 
+		<li>
+			<a href="audi.html">
+			<h5>Livraison de Mr. {{=name}}</h5>
+			<p>{{=status}}</p>
+			</a>		
+		</li>
+	</script>
+</ul>
+
+<ul id="listDone" data-role="listview" data-theme="c" data-divider-theme="a">
+	<li data-role="list-divider">Done <span class="ui-li-count">3</span></li>
+</ul>
+
+
+
+</div><!-- /page -->
+
+</body>
+</html> 
